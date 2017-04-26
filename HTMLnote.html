@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!-->https://www.w3schools.com/tags/default.asp</!-->
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML note</title>
+	</head>
+	<body>
+        <a href="http://google.com">Google</a><br>
+        <strong>Bold text</strong><br>
+        <b>Bold Text</b><br>
+        <em>Наклонный</em><br>
+        <h1>Text</h1>
+        <h2>Text</h2>
+        <h3>Text</h3>
+        <h4>Text</h4>
+        <h5>Text</h5>
+        <h6>Text</h6>
+        <img src="https://pp.userapi.com/c604718/v604718316/f02e/wj06Mfol9bY.jpg">
+
+        <table border="2">
+            <tr>
+                <td>1</td><td>2</td>
+            </tr>
+        </table>
+
+        <input type="text" value="default value"><br><br>   
+
+        <textarea cols="30" rows="10"></textarea>
+
+		<div id="rootField"></div>
+		<style>
+			.groupField{
+				position: absolute;
+				background: #EEE;
+				height: 30vh;
+				width: 30vh;
+			}
+			.insideField{
+				position: absolute;
+				background: #DDD;
+				height: 100%;
+				width: 0%;
+				text-align: center;
+				/*font-size: 3vh;*/
+			}
+			#rootField{
+				margin: auto;
+				border: 0;
+				width: 30vh;
+			}
+			#resultColorFields{
+				top: 3vh;
+			}
+			#thirdTargetField{
+				height: 1.5rem;
+				width: 100%;
+				top: 20%;
+				background: rgba(0,0,0,0);
+			}
+			#activeColorFields{
+				top: 36vh;
+			}
+			#dynamicColorFields{
+				top: 69vh;
+			}
+		</style>
+		
+		<script src='Data.js'></script>
+		<script src="Interface.js" onload="(new CreateLevel).first()"></script>
+	</body>
+</html>
