@@ -16,7 +16,7 @@ alert("It`s my notes about JS")
 var variableByVar;
 
 "use strict" //on support new standarts
-//Must be in start script or function
+//Must be in script or function start
 
 let a; //Variable will NOT visibilite out of if\for
 const b; //Variable can not change link to data (but data can be change, in array, for example)
@@ -30,8 +30,10 @@ const b; //Variable can not change link to data (but data can be change, in arra
 //HTML4
 //<script type="text/javascript"> ... </script>
 
-//script address can be from site root ot http link (disable code inside)
+//script address can be from site root or link (disable code inside)
 //<script src="C:\\myFolder\test.js"></script>;
+
+//default scripts load, build, run by queue
 
 //async script not block load and build html page,
 //loading async, build and run async
@@ -70,7 +72,7 @@ addScript('3.js');
 //12.toFixed(1); //error!
 12..toFixed(1); //12.0
 0xFF === 255; //true
-Infinity == +"Infinity"; //true
+Infinity == +"\nInfinity  "; //true
 var nan = NaN;
 isNaN(NaN) == (nan !== nan) //true
 function isNumeric(n){return !isNaN(parseFloat(n)) && isFinite(n)} //strict number comparison
@@ -368,4 +370,34 @@ for(;;){
   localStorage.setItem("obj", JSON.stringify(obj));
   obj = JSON.parse(localStorage.getItem("obj"));
   break;
+}
+
+
+//prototypes
+//link to propertys and methods other obj (read only)
+for(;;){
+	let animal = {
+		eats: true
+	},
+	rabbit = {
+		jumps: true,
+		__proto__: animal
+	};
+	rabbit.eats; //true
+
+	Object.keys(rabbit) // ["jumps"]
+
+	for(k in rabbit) {console.log(k)} //jumps, eats
+
+	for(k in rabbit) {
+		if(rabbit.hasOwnProperty(k)) console.log(k)
+	} //jumps
+
+	animal.feed = function() {this.hungry = false;}
+	rabbit.feed();
+	rabbit.hungry; //false
+
+
+	Object.create(null) //create obj without system proto
+
 }
