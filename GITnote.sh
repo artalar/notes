@@ -1,4 +1,8 @@
 #first steps
+git config --global user.email artalar@ya.ru
+git config --global user.name artalar
+
+
 git init
 git add *
 git commit -m "create"
