@@ -4,8 +4,12 @@ npm config get prefix
 #install all from pakage.json in current path
 npm install
 
-#'--save' connect this package how required for this projet
+#'--save' connectthis package how required for this projet (dependency)
 npm i somePackage --save
+
+#packages with devDependency not install by 'link' or 'install', but install by package.json
+npm i somePackage --save-dev
+
 
 #'i' - shortcut #'-g' install exact modules in default path #after '@' set version
 npm i npm@latest -g

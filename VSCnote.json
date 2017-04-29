@@ -1,0 +1,8 @@
+{
+   "files.autoSave": "afterDelay",
+    "editor.minimap.enabled": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.renderControlCharacters": true,
+    "editor.wordWrap": "on",
+    "editor.fontSize": 11
+}
