@@ -107,9 +107,10 @@ var obj = {"first name": "Black", secondName: "Tom"};
 Object.keys(obj) //["first name", "secondName"]
 delete obj["first name"];
 "secondName" in obj; /*true*/ "first name" in obj; /*false*/
+Object.assign(obj, {}, {key: 'value'}) //concatenate objects
 
 //array - special object
-var arr = new Array(5) //arr.length == 5 //arr[0] == undefined
+var arr = new Array(5); //arr.length == 5 //arr[0] == undefined
 var a = [1,2,3,4,5];
 a.push();//add new last element and return array length
 a.pop();//remove and return last element

@@ -1,0 +1,11 @@
+// Visual Studio Code settings
+{
+    "editor.fontSize": 11,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 15000,
+    "editor.renderWhitespace": "boundary",
+    "editor.insertSpaces": false,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false
+}

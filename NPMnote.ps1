@@ -10,6 +10,9 @@ npm i somePackage --save
 #packages with devDependency not install by 'link' or 'install', but install by package.json
 npm i somePackage --save-dev
 
+#will write package current version in package.json
+npm i somePackage --save --save-exact
+
 
 #'i' - shortcut #'-g' install exact modules in default path #after '@' set version
 npm i npm@latest -g
