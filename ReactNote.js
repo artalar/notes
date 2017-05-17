@@ -25,7 +25,10 @@ export default class App extends Component{
 		};
 	};
 
-	//input data validator
+	// input data validator
+	// npm install --save prop-types
+	// https://facebook.github.io/react/docs/typechecking-with-proptypes.html
+	// https://habrahabr.ru/post/319358/
 	static propTypes = {
 		items: PropTypes.array.isRequired,
 		isLoading: PropTypes.bool,

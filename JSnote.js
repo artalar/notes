@@ -107,29 +107,35 @@ var obj = {"first name": "Black", secondName: "Tom"};
 Object.keys(obj) //["first name", "secondName"]
 delete obj["first name"];
 "secondName" in obj; /*true*/ "first name" in obj; /*false*/
-Object.assign(obj, {}, {key: 'value'}) //concatenate objects
+Object.assign(obj, {key: 'value'}) //concatenate objects
 
-//array - special object
-var arr = new Array(5); //arr.length == 5 //arr[0] == undefined
-var a = [1,2,3,4,5];
-a.push();//add new last element and return array length
-a.pop();//remove and return last element
-a.unshift();//add new first element and return array length
-a.shift();//remove and return first element
-a.length = 0;//clear array
-a == a.revers()//true
-a.join(str) //join all elements by str, return string
-a.slice(firstIndex,lastIndex) //return new array with target elements
-a.sort() //sort by Unicode min to max
-a.sort(function(a, b){return a - b}) //sort numeric values from min to max
-a.splice(index, deleteCount, firstElementToPaste, NElementToPaste, LastElementToPaste)
-a.forEach(func(item, i, arr)) //havent return
-a.filter(func(item, i, arr)) //return array, whith elements by func iteration return true
-a.map(func(item, i, arr)) //return array, whith elements from func iteration return
-a.reduce(func(previousValue, currentItem, index, arr), initialValue) //return last iteration return
-//if(initialValue){
-//  previousValue = initialValue, currentItem = arr[0];
-//}else{previousValue = arr[0], currentItem = arr[1]}
+{
+	//array - special object
+	let arr = new Array(5);
+	let a = new Array(1,2,3,4,5); /*==*/ [1,2,3,4,5];
+	a.length = 3; /*shrink array*/ a.length == 0 //clear array
+	Array.from('str') //["s", "t", "r"] //convert data to array/ Data: Map, Set, string, 
+	a.some((item, i, arr) => item > 2) //true if at least once retune true
+	a.every((item, i, arr) => item > 2) //false if at least once retune false
+	a.push();//add new element in the end and return array length
+	a.pop();//remove and return last element
+	a.unshift();//add new first element and return array length
+	a.shift();//remove and return first element
+	a.length = 0;//clear array
+	a.reverse()//revers elements in array and return result
+	a.join(str) //join all elements by str, return string
+	a.slice(firstIndex,lastIndex) //return new array with target elements
+	a.sort() //sort by Unicode min to max
+	a.sort(function(a, b){return a - b}) //sort numeric values from min to max
+	a.splice(index, deleteCount, firstElementToPaste, NElementToPaste, LastElementToPaste)
+	a.forEach(func(item, i, arr)) //havent return
+	a.filter(func(item, i, arr)) //return array, whith elements by func iteration return true
+	a.map(func(item, i, arr)) //return array, whith elements from func iteration return
+	a.reduce(func(previousValue, currentItem, index, arr), initialValue) //return last iteration return
+	//if(initialValue){
+	//  previousValue = initialValue, currentItem = arr[0];
+	//}else{previousValue = arr[0], currentItem = arr[1]}
+}
 
 
 
@@ -374,10 +380,11 @@ for(;;){
 }
 
 
-//prototypes
-//link to propertys and methods other obj (read only)
-for(;;){
-	let animal = {
+
+if(false){
+	//prototypes
+	//link to propertys and methods other obj (read only)
+	const animal = {
 		eats: true
 	},
 	rabbit = {
@@ -401,4 +408,83 @@ for(;;){
 
 	Object.create(null) //create obj without system proto
 
+}
+
+if(false){
+	//try, catch
+	window.onerror = (msg, url, lineNumber) => {
+		alert("Поймана ошибка, выпавшая в глобальную область!\n" +
+		"Сообщение: " + msg + "\n(" + url + ":" + lineNumber + ")");
+	};
+
+
+	try {
+		//{code}
+	} catch(e) {
+		//if upper code breaking with unexceptable error
+		const {name, message, stack} = e;
+
+		throw e //error 'return'
+
+	} finally { //option method
+		//{code}
+		//this code will run in any situation
+	}
+}
+
+if(false){
+	//Promise
+	let p = new Promise(
+		(resolve, reject) => {/*setTimeout...*/}
+	);
+	/*
+		p == {[[PromiseStatus]]: "pending", [[PromiseValue]]: undefined}
+
+		resolve and reject - return functions for change Promise status and fill Value
+		u must call them in end of your code:
+
+		after {resolve({test: 'done'})}
+			p == {[[PromiseStatus]]: "fulfilled", [[PromiseValue]]: {test: 'done'}}
+		after {reject({test: 'false'})}
+			p == {[[PromiseStatus]]: "rejected ", [[PromiseValue]]: {test: 'false'}}
+			console: Uncaught (in promise) Object {test: "false"}
+			//reject == throw
+	*/
+
+	p.then(resolve, reject)
+	/*
+		resolve \ reject - functions will call after resolve \ reject promise
+		can add after and then promise end
+		PromiseValue == undefined if .then will not return any value
+		[[PromiseStatus]]:"rejected" can be only if .then  {return trow value}
+			else [[PromiseStatus]]:"resolved"
+	*/
+	p.catch(reject) // == p.then(null,reject)
+}
+
+
+
+class Vector {
+	constructor(x,y){
+		this.x = x;
+		this.y = y;
+	};
+
+	plus (AnotherVector){
+		return new Vector(
+			AnotherVector.x + this.x,
+			AnotherVector.y + this.y
+		)
+	};
+
+	minus (AnotherVector){
+		return new Vector(
+			this.x - AnotherVector.x,
+			this.y - AnotherVector.y
+		)
+	};
+
+	get length (){
+		return
+	}
 }

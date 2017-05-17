@@ -1,3 +1,7 @@
+/*
+npm install --save redux react-redux
+*/
+
 import React, { Component } from 'react';
 import Layout from './Layout';
 import Counter from './Counter';
